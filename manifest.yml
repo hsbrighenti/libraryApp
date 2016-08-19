@@ -1,0 +1,8 @@
+---
+applications:
+- name: libraryApp-hsbrighenti
+  memory: 512M
+  command: npm start
+  instances: 1
+  services:
+   - libraryApp-hsbrighenti-cloudantNoSQLDB

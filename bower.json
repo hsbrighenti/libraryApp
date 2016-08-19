@@ -1,0 +1,24 @@
+{
+  "name": "library",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Henrique S. Brighenti"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1 - 3",
+    "font-awesome": "^4.6.3",
+    "bootstrap": "^3.3.7"
+  }
+}
