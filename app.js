@@ -1,6 +1,16 @@
+var cfEnv = require('cfenv');
+var appEnv = cfEnv.getAppEnv();
+var dbCreds = appEnv.getServiceCreds('libraryApp-hsbrighenti-cloudantNoSQLDB');
+
+var nano;
+if (dbCreds) {
+    nano = require('nano')(dbCreds.url);
+} else {
+    console.log('NO DB!');
+}
+
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 5000;
 
 var nav = [
     {
@@ -42,6 +52,6 @@ app.get('/authors', function (req, res) {
     res.send('Hello Authors');
 });
 
-app.listen(port, function (err) {
-    console.log('Running server on port ' + port);
+app.listen(appEnv.port, function (err) {
+    console.log('Running server at ' + appEnv.url);
 });
