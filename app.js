@@ -1,13 +1,15 @@
 var cfEnv = require('cfenv');
 var appEnv = cfEnv.getAppEnv();
-var dbCreds = appEnv.getServiceCreds('libraryApp-hsbrighenti-cloudantNoSQLDB');
+var dbCreds;
 
-var nano;
-if (dbCreds) {
-    nano = require('nano')(dbCreds.url);
+if (appEnv.isLocal){
+    // A not so elegant but simple way to run and debug the application locally 
+    dbCreds = require('./local_configs/bluemixServices.json').cloudantNoSQLDB[0].credentials;
 } else {
-    console.log('NO DB!');
+    dbCreds = appEnv.getServiceCreds('libraryApp-hsbrighenti-cloudantNoSQLDB');
 }
+
+var nano = require('nano')(dbCreds.url);
 
 var express = require('express');
 var app = express();
