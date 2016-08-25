@@ -25,5 +25,9 @@
     "jshint-stylish": "^2.2.1",
     "nano": "^6.2.0",
     "wiredep": "^4.0.0"
-  }
+  },
+  "engines": {
+    "node": "4.x"
+  },
+  "cacheDirectories": ["node_modules", "public/lib"]
 }
