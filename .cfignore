@@ -1,5 +1,5 @@
 node_modules/
-tmp/
-bower_modules/
-public/lib/*
+public/lib
+.vscode/
 local_configs/
+tmp/
