@@ -6,42 +6,49 @@ var books = [
         title: 'War and Peace',
         genre: 'Historical Fiction',
         author: 'Lev Nikolayevich',
+        bookId: 656,
         read: false
     },
     {
         title: 'War and Peace2',
         genre: 'Historical Fiction',
         author: 'Lev Nikolayevich',
+        bookId: 656,
         read: false
     },
     {
         title: 'War and Peace3',
         genre: 'Historical Fiction',
         author: 'Lev Nikolayevich',
+        bookId: 656,
         read: false
     },
     {
         title: 'War and Peace4',
         genre: 'Historical Fiction',
         author: 'Lev Nikolayevich',
+        bookId: 656,
         read: false
     },
     {
         title: 'War and Peace5',
         genre: 'Historical Fiction',
         author: 'Lev Nikolayevich',
+        bookId: 656,
         read: false
     },
     {
         title: 'War and Peace6',
         genre: 'Historical Fiction',
         author: 'Lev Nikolayevich',
+        bookId: 656,
         read: false
     },
     {
         title: 'War and Peace7',
         genre: 'Historical Fiction',
         author: 'Lev Nikolayevich',
+        bookId: 656,
         read: false
     }
 ];

@@ -23,13 +23,15 @@
     "gulp-jscs": "^4.0.0",
     "gulp-jshint": "^2.0.1",
     "gulp-nodemon": "^2.1.0",
+    "http": "0.0.0",
     "jscs": "^3.0.7",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.1",
     "nano": "^6.2.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "wiredep": "^4.0.0"
+    "wiredep": "^4.0.0",
+    "xml2js": "^0.4.17"
   },
   "engines": {
     "node": "4.x"

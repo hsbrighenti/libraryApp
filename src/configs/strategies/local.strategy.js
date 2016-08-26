@@ -14,13 +14,13 @@ module.exports = function (nano) {
         };
         usersCollection.get(username, { include_docs: true }, function (err, body) {
             if (!err) {
-                if (body.password == password) {
+                if (body.password === password) {
                     done(null, user);
                 } else {
                     done(null, false, { message: 'Bad Password' });
                 }
-            } else if(err.statusCode == 404) {
-                done("User Not Found", false);
+            } else if(err.statusCode === 404) {
+                done('User Not Found', false);
             } else {
                 done(err, false);
             }

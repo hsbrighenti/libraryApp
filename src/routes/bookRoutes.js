@@ -2,7 +2,8 @@ var express = require('express');
 var bookRouter = express.Router();
 
 var router = function (nav, nano) {
-    var bookController = require('../controllers/bookController')(null, nav, nano);
+    var bookService = require('../services/goodreadsService')();
+    var bookController = require('../controllers/bookController')(bookService, nav, nano);
 
     bookRouter.use(bookController.middleware);
 

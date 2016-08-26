@@ -34,7 +34,7 @@ gulp.task('inject', function(){
                 .pipe(gulp.dest('./src/views'));
 });
 
-gulp.task('serve', ['style', 'inject'], function(){
+gulp.task('serve', ['style'], function(){
     var options = {
         exec: 'node --debug',
         script: './app.js',
