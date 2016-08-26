@@ -2,40 +2,15 @@ var express = require('express');
 var bookRouter = express.Router();
 
 var router = function (nav, nano) {
-    var collection = nano.use('books');
+    var bookController = require('../controllers/bookController')(null, nav, nano);
 
-    bookRouter.use(function(req, res, next){
-            if(!req.user){
-                res.redirect('/');
-            }
-            next();
-        });
+    bookRouter.use(bookController.middleware);
 
     bookRouter.route('/')
-        .get(function (req, res) {
-            collection.list({ include_docs: true }, function (err, body) {
-                var bookList = body.rows || [];
-                res.render('books', {
-                    title: 'Books',
-                    nav: nav,
-                    books: bookList
-                });
-            });
-        });
+        .get(bookController.getIndex);
 
     bookRouter.route('/:id')
-        .get(function (req, res) {
-            var id = req.params.id;
-            collection.get(id, function(err, body, headers){
-                var bookList = [body] || [];
-                bookList[0].doc = body;
-                res.render('books', {
-                    title: 'Books',
-                    nav: nav,
-                    books: bookList
-                });
-            });
-        });
+        .get(bookController.getById);
 
     return bookRouter;
 };
