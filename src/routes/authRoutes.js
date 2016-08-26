@@ -9,7 +9,7 @@ var router = function (nav, nano) {
 
     authRouter.route('/signup')
         .post(function (req, res) {
-            
+            res.send(req.body);
         });
 
     return authRouter;
