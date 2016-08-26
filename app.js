@@ -1,5 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
 var app = express();
 var cfEnv = require('cfenv');
 var appEnv = cfEnv.getAppEnv();
@@ -30,12 +33,17 @@ var nav = [
 var bookRouter = require('./src/routes/bookRoutes')(nav, nano);
 var adminRouter = require('./src/routes/adminRoutes')(nav, nano);
 var authRouter = require('./src/routes/authRoutes')(nav, nano);
+
+app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(session({ secret: 'library' }));
+require('./src/configs/passport')(app, nano);
+
 app.use('/books', bookRouter);
 app.use('/admin', adminRouter);
 app.use('/auth', authRouter);
-app.use(express.static('public'));
 
 // Set up Views, renderer and main routes
 app.set('views', './src/views');

@@ -4,6 +4,13 @@ var bookRouter = express.Router();
 var router = function (nav, nano) {
     var collection = nano.use('books');
 
+    bookRouter.use(function(req, res, next){
+            if(!req.user){
+                res.redirect('/');
+            }
+            next();
+        });
+
     bookRouter.route('/')
         .get(function (req, res) {
             collection.list({ include_docs: true }, function (err, body) {

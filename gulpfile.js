@@ -36,8 +36,9 @@ gulp.task('inject', function(){
 
 gulp.task('serve', ['style', 'inject'], function(){
     var options = {
+        exec: 'node --debug',
         script: './app.js',
-        delayTime: 1,
+        delayTime: 3,
         env: {
             'PORT': 5000
         },
@@ -54,4 +55,4 @@ gulp.task('serve', ['style', 'inject'], function(){
             });
 });
 
-gulp.task('build', ['inject']);
+gulp.task('build', ['style', 'inject']);
