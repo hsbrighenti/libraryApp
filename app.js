@@ -29,10 +29,12 @@ var nav = [
 // Set up routers and static directory
 var bookRouter = require('./src/routes/bookRoutes')(nav, nano);
 var adminRouter = require('./src/routes/adminRoutes')(nav, nano);
+var authRouter = require('./src/routes/authRoutes')(nav, nano);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/books', bookRouter);
 app.use('/admin', adminRouter);
+app.use('/auth', authRouter);
 app.use(express.static('public'));
 
 // Set up Views, renderer and main routes
