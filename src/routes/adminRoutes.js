@@ -49,7 +49,7 @@ var books = [
 var router = function (nav, nano) {
     if (!nano.db) {
         console.error('No DB!');
-        return false
+        return false;
     }
 
     adminRouter.route('/addBooks')
@@ -61,7 +61,7 @@ var router = function (nav, nano) {
                     var collection = nano.use('books');
                     collection.bulk({ docs: books }, function (err, body, header) {
                         res.send(body);
-                    })
+                    });
                 });
             });
         });

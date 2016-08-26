@@ -11,6 +11,7 @@
   "author": "Henrique S. Brighenti",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "bower": "^1.7.9",
     "cfenv": "^1.0.3",
     "ejs": "^2.5.1",
@@ -29,5 +30,8 @@
   "engines": {
     "node": "4.x"
   },
-  "cacheDirectories": ["node_modules", "public/lib"]
+  "cacheDirectories": [
+    "node_modules",
+    "public/lib"
+  ]
 }

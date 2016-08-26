@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 var cfEnv = require('cfenv');
 var appEnv = cfEnv.getAppEnv();
@@ -28,6 +29,8 @@ var nav = [
 // Set up routers and static directory
 var bookRouter = require('./src/routes/bookRoutes')(nav, nano);
 var adminRouter = require('./src/routes/adminRoutes')(nav, nano);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/books', bookRouter);
 app.use('/admin', adminRouter);
 app.use(express.static('public'));
